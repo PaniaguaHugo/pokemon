@@ -15,10 +15,6 @@ const Pokedex = () => {
         })
     }
 
-    useEffect(()  => {
-        getPokeApi()
-    }, [])
-
     const pagination = async () => {
         let pagination = await fetch(pokemonApi.next)
         let {results, next, previous} = await pagination.json()

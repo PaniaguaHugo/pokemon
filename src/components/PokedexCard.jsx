@@ -1,9 +1,10 @@
-const PokedexCard = () => {
+const PokedexCard = ({pokemonList}) => {
 
     return(
         <div className="col-6 col-lg-3 d-flex mb-3">
         <div className="card flex-fill">
             <div className="card-header bg-primary text-light rounded">
+                <p></p>
             </div>
             <div className="card-body">
                 {/* <div className="card-img-top img-fluid" key={index} style={{backgroundImage:`url("${pokemon.url}")`, width:"20px", height:"20px"}} ></div> */}
