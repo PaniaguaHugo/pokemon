@@ -1,18 +1,7 @@
-import { useState } from "react";
+import React,{} from "react";
+import PokedexCard from "./PokedexCard";
 
-const PokedexCards = ({pokeData}) => {
-
-    const [pokemonList, setPokemonList] = useState([])
-
-        pokeData.forEach((el) => {
-            fetch(el.url)
-            .then((res) => res.json())
-            .then((data) => {
-                setPokemonList(data)
-            })
-        });
-
-        console.log(pokemonList)
+const PokedexCards = ({pokemons}) => {
 
     return(
         //main  container
@@ -20,10 +9,17 @@ const PokedexCards = ({pokeData}) => {
             {/* //cards */}
             <div id="cards" className="bg-light">
                 <h3 className="font-weight-light text-center my-3">Cards</h3>
+
                 {/* <!-- full size Card container --> */}
                 <div className="container-fluid mx-auto d-none d-md-block my-3">
-                    <div className="row">
-
+                    <div className="row container-fluid">
+                        {pokemons.map((pokemon, index) => {
+                            return(
+                                <div className="col-6 col-lg-4 d-flex mb-3" key={index}>
+                                    <PokedexCard pokemon={pokemon} index={index}/>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
                 {/* /full size Card container */}
